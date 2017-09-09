@@ -22,12 +22,13 @@
         </div>
       <% end %>
       </div>
-      <div class="col-4 slogan">
+      <div class="col col-sm-4 hidden-xs-down col-4 slogan">
         Splurting out hilarious moments from The Office since 2017.
       </div>
-      <div class="col-5 links">  
+      <div class="col-10 offset-1 offset-sm-0 col-sm-5 links">  
       <!-- Button trigger modal -->
       <%= link_to 'Contribute', '#', data: {toggle: 'modal', target: '#myModal'} %>
+      &nbsp;&nbsp;
       </button>
         <%= link_to 'About', about_path %>
       </div>
@@ -45,13 +46,14 @@
             </button>
             <h4 class="modal-title" id="myModalLabel">Contribute your Quote</h4>
           </div>
-          <div class="modal-body">
             <%= simple_form_for Quote.new do |f| %>
-              <%= f.input :saying %>
-              <%= f.input :author %>
+              <div class="modal-body">
+                <%= f.input :saying, label: "What is the quote you want to add?", placeholder: "Bears Beets Battlestar Galactica" %>
+                <br />
+              <%= f.input :author, label: "What character said the quote?", placeholder: "Jim Halpert" %>
               </div>
               <div class="modal-footer">
-                <button type="button", class="btn btn-secondary", data-dismiss="modal>">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <%= f.submit 'Create', class: 'btn btn-danger' %>
                 </div>
             <% end %>
@@ -75,10 +77,10 @@
     <div class="footer">
       <div class="container">
         <div class="row">
-          <div class="col-6">
+          <div class="col-12 col-sm-6">
           <%= link_to "This isn't enough, I need more", root_path, class: 'next-quote' %>
           </div>
-          <div class="col-6 footer-blurb">
+          <div class="col 12 col-sm-6 footer-blurb">
             Proudly hacked in San Francisco, CA by Yoshi Moriyama
           </div>
         </div>
